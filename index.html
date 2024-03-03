@@ -54,7 +54,52 @@ h2 {font-size: 20pt;
 	<br>
 	Libraries are our checkpoints.
 	<br>
-	Check in for updates!
+	<br>
+	Sign up for updates if you want!
+	<br>
+
+<div class="center">
+<form name="submit-to-google-sheet">
+	<input type="name" name="name"
+	placeholder="first name"> 
+
+
+<br>
+
+	<input type="email" name="email"
+	placeholder="email*" required> 
+</div>
+
+<br>
+
+<div class="center">
+<button class="form-button" style="center" type="submit">
+	sign up
+</button>
+
+</div>
+
+</form>
+
+<br>
+
+<div class="center">
+
+</div>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyWyOu7Ef8GTEPD9vy9gfOxvn-35zSnFcpY8VAdtmjHm1rTu9-eZv7S3pc-pa2dl-Sxwg/exec'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+form.reset()
+  })
+</script>
+
 </p>
 	<br>
 	<br>
